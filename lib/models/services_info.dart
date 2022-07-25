@@ -18,7 +18,7 @@ class ServicesInfo {
 List<ServicesInfo> servicesList = [
   ServicesInfo(
       icon: Icon(
-        FontAwesomeIcons.fan,
+        FontAwesomeIcons.radiation,
         color: Color.fromARGB(251, 79, 17, 94),
         size: 50,
       ),

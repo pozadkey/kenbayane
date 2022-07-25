@@ -1,13 +1,19 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, sized_box_for_whitespace, must_be_immutable
 
 import 'package:flutter/material.dart';
-
-import '../nav/navbar.dart';
 import '../nav/navbar_mobile.dart';
 
 class NavBarButton extends StatefulWidget {
+  Color hamburgerColor;
+  double hamburgerSize;
   final Function onPressed;
-  const NavBarButton({Key? key, required this.onPressed}) : super(key: key);
+  
+  NavBarButton(
+      {Key? key,
+      required this.onPressed,
+      required this.hamburgerSize,
+      required this.hamburgerColor})
+      : super(key: key);
 
   @override
   _NavBarButtonState createState() => _NavBarButtonState();
@@ -18,7 +24,6 @@ class _NavBarButtonState extends State<NavBarButton> {
   Widget build(BuildContext context) {
     return Container(
         height: 55.0,
-        width: 60.0,
         child: InkWell(
           splashColor: Colors.white60,
           onTap: () {
@@ -26,8 +31,8 @@ class _NavBarButtonState extends State<NavBarButton> {
           },
           child: Icon(
             myMenu,
-            color: Colors.white,
-            size: 30,
+            color: widget.hamburgerColor,
+            size: widget.hamburgerSize,
           ),
         ));
   }

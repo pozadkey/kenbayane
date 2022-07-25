@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import '../buttons/home_button.dart';
+import 'package:kenbayanerenewable/views/widgets/nav/navbar_items.dart';
+import '../buttons/primary_button.dart';
 import 'navbar_logo.dart';
 
 class NavBarDesktop extends StatefulWidget {
@@ -12,13 +13,6 @@ class NavBarDesktop extends StatefulWidget {
 }
 
 class _NavBarDesktopState extends State<NavBarDesktop> {
-  final _navFont = TextStyle(
-      fontStyle: FontStyle.normal,
-      fontSize: 14,
-      letterSpacing: 0.41,
-      color: Colors.white,
-      fontWeight: FontWeight.w600);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,52 +24,56 @@ class _NavBarDesktopState extends State<NavBarDesktop> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           NavLogo(
-            myColor: Color.fromARGB(255, 255, 200, 3),
+            myColor: Color.fromARGB(255, 255, 215, 39),
+            logoTextSize: 20,
+            iconsSize: 20,
           ),
           Row(children: [
-            MaterialButton(
-              hoverColor: Color.fromARGB(255, 255, 200, 3),
-              onPressed: () {
-                Navigator.pushNamed(context, '/');
-              },
-              child: Text(
-                'Home',
-                style: _navFont,
-              ),
-            ),
-            MaterialButton(
-              hoverColor: Color.fromARGB(255, 255, 200, 3),
-              onPressed: () {
-                Navigator.pushNamed(context, '/services');
-              },
-              child: Text(
-                'Services',
-                style: _navFont,
-              ),
-            ),
-            MaterialButton(
-              hoverColor: Color.fromARGB(255, 255, 200, 3),
-              onPressed: () {
-                Navigator.pushNamed(context, '/projects');
-              },
-              child: Text(
-                'Projects',
-                style: _navFont,
-              ),
-            ),
-            MaterialButton(
-              hoverColor: Color.fromARGB(255, 255, 200, 3),
-              onPressed: () {
-                Navigator.pushNamed(context, '/about');
-              },
-              child: Text(
-                'About',
-                style: _navFont,
-              ),
-            ),
+            NavBarItems(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/');
+                },
+                title: 'Home',
+                initialColor: Colors.white,
+                hoverColorIn: Color.fromARGB(255, 255, 215, 39),
+                hoverColorOut: Colors.white),
+            NavBarItems(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/services');
+                },
+                title: 'Services',
+                initialColor: Colors.white,
+                hoverColorIn: Color.fromARGB(255, 255, 215, 39),
+                hoverColorOut: Colors.white),
+            NavBarItems(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/projects');
+                },
+                title: 'Projects',
+                initialColor: Colors.white,
+                hoverColorIn: Color.fromARGB(255, 255, 215, 39),
+                hoverColorOut: Colors.white),
+            NavBarItems(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/about');
+                },
+                title: 'About',
+                initialColor: Colors.white,
+                hoverColorIn: Color.fromARGB(255, 255, 215, 39),
+                hoverColorOut: Colors.white),
           ]),
           Row(
-            children: [HomeButton()],
+            children: [
+              PrimaryButton(
+                title: 'Contact Us',
+                myColor: Color.fromARGB(255, 255, 215, 39),
+                colorOut: Color.fromARGB(255, 255, 215, 39),
+                colorIn: Colors.white,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/contact');
+                },
+              )
+            ],
           )
         ],
       ),

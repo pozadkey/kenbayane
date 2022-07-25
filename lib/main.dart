@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:url_strategy/url_strategy.dart';
 import 'package:kenbayanerenewable/views/about_view/about_view.dart';
 import 'package:kenbayanerenewable/views/contact_view/contact_view.dart';
 import 'package:kenbayanerenewable/views/projects_view/projects_view.dart';
@@ -10,6 +11,9 @@ import 'views/home_view/home_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  setPathUrlStrategy();
+
   runApp(const MyApp());
 }
 
@@ -28,6 +32,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           fontFamily: 'Poppins',
         ),
+        title: 'Kenbayane Renewable ',
         routes: <String, WidgetBuilder>{
           '/': (BuildContext context) => HomeView(),
           '/services': (BuildContext context) => ServicesView(),

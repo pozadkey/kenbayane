@@ -2,7 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:kenbayanerenewable/views/widgets/footer/footer_icon_items.dart';
+import 'package:kenbayanerenewable/views/widgets/footer/footer_items.dart';
 import 'package:kenbayanerenewable/views/widgets/nav/navbar_logo.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FooterViewDesktop extends StatefulWidget {
   const FooterViewDesktop({Key? key}) : super(key: key);
@@ -15,7 +18,7 @@ class _FooterViewDesktopState extends State<FooterViewDesktop> {
   final _footerHeaderFont = TextStyle(
       fontStyle: FontStyle.normal,
       fontSize: 18,
-      color: Color.fromARGB(255, 255, 200, 3),
+      color: Color.fromARGB(255, 255, 215, 39),
       fontWeight: FontWeight.w600);
 
   final _footerFont = TextStyle(
@@ -24,15 +27,21 @@ class _FooterViewDesktopState extends State<FooterViewDesktop> {
       color: Colors.grey[200],
       fontWeight: FontWeight.w400);
 
-  final TextEditingController _email = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
+  void _launchEmail() async {
+    final url = Uri.parse('mailto:info@kenbayanerenewable.com?subject=Hello');
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         padding: EdgeInsets.fromLTRB(100, 100, 100, 100),
-        color: Color.fromARGB(253, 66, 0, 83),
+        color: Color.fromARGB(251, 66, 0, 83),
         height: 500,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,11 +50,13 @@ class _FooterViewDesktopState extends State<FooterViewDesktop> {
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   width: 400,
                   child: FittedBox(
                     child: NavLogo(
-                      myColor: Color.fromARGB(255, 255, 200, 3),
+                      myColor: Color.fromARGB(255, 255, 215, 39),
+                      logoTextSize: 20,
+                      iconsSize: 20,
                     ),
                   ),
                 ),
@@ -73,67 +84,52 @@ class _FooterViewDesktopState extends State<FooterViewDesktop> {
                 SizedBox(
                   child: Divider(
                     color: Colors.white,
-                    thickness: 3,
+                    thickness: 2,
                   ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                MaterialButton(
-                  padding: EdgeInsets.zero,
-                  minWidth: 0,
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/');
-                  },
-                  child: Text(
-                    'Home',
-                    style: _footerFont,
-                  ),
-                ),
-                MaterialButton(
-                  padding: EdgeInsets.zero,
-                  minWidth: 0,
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/services');
-                  },
-                  child: Text(
-                    'Services',
-                    style: _footerFont,
-                  ),
-                ),
-                MaterialButton(
-                  padding: EdgeInsets.zero,
-                  minWidth: 0,
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/projects');
-                  },
-                  child: Text(
-                    'Projects',
-                    style: _footerFont,
-                  ),
-                ),
-                MaterialButton(
-                  padding: EdgeInsets.zero,
-                  minWidth: 0,
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/about');
-                  },
-                  child: Text(
-                    'About',
-                    style: _footerFont,
-                  ),
-                ),
-                MaterialButton(
-                  padding: EdgeInsets.zero,
-                  minWidth: 0,
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/contact');
-                  },
-                  child: Text(
-                    'Contact',
-                    style: _footerFont,
-                  ),
-                ),
+                FooterItems(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/');
+                    },
+                    title: 'Home',
+                    initialColor: Color.fromARGB(255, 248, 248, 248),
+                    hoverColorIn: Color.fromARGB(255, 255, 215, 39),
+                    hoverColorOut: Color.fromARGB(255, 248, 248, 248)),
+                FooterItems(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/services');
+                    },
+                    title: 'Services',
+                    initialColor: Color.fromARGB(255, 248, 248, 248),
+                    hoverColorIn: Color.fromARGB(255, 255, 215, 39),
+                    hoverColorOut: Color.fromARGB(255, 248, 248, 248)),
+                FooterItems(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/projects');
+                    },
+                    title: 'Projects',
+                    initialColor: Color.fromARGB(255, 248, 248, 248),
+                    hoverColorIn: Color.fromARGB(255, 255, 215, 39),
+                    hoverColorOut: Color.fromARGB(255, 248, 248, 248)),
+                FooterItems(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/about');
+                    },
+                    title: 'About',
+                    initialColor: Color.fromARGB(255, 248, 248, 248),
+                    hoverColorIn: Color.fromARGB(255, 255, 215, 39),
+                    hoverColorOut: Color.fromARGB(255, 248, 248, 248)),
+                FooterItems(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/contact');
+                    },
+                    title: 'Contact',
+                    initialColor: Color.fromARGB(255, 248, 248, 248),
+                    hoverColorIn: Color.fromARGB(255, 255, 215, 39),
+                    hoverColorOut: Color.fromARGB(255, 248, 248, 248)),
               ],
             )),
             Expanded(
@@ -147,80 +143,56 @@ class _FooterViewDesktopState extends State<FooterViewDesktop> {
                 SizedBox(
                   child: Divider(
                     color: Colors.white,
-                    thickness: 3,
+                    thickness: 2,
                   ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                MaterialButton(
-                  padding: EdgeInsets.zero,
-                  minWidth: 0,
-                  onPressed: () {},
-                  child: Row(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.envelope,
-                        color: Colors.white,
-                        size: 18,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'info@kenbayanerenewable.com',
-                        style: _footerFont,
-                      ),
-                    ],
-                  ),
+                FooterIconItems(
+                    title: 'info@kenbayanerenewable.com',
+                    footerIcon: FontAwesomeIcons.solidEnvelope,
+                    initialColor: Color.fromARGB(255, 248, 248, 248),
+                    hoverColorIn: Color.fromARGB(255, 255, 215, 39),
+                    hoverColorOut: Color.fromARGB(255, 248, 248, 248),
+                    onPressed: _launchEmail),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Icon(
+                      FontAwesomeIcons.solidBuilding,
+                      color: Colors.white,
+                      size: 18,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      '8 Jardine Street, Stafford,\nQueensland, 4053 Australia',
+                      style: _footerFont,
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                MaterialButton(
-                  padding: EdgeInsets.zero,
-                  minWidth: 0,
-                  onPressed: () {},
-                  child: Row(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.building,
-                        color: Colors.white,
-                        size: 18,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '8 Jardine Street, Stafford,\nQueensland, 4053 Australia',
-                        style: _footerFont,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                MaterialButton(
-                  padding: EdgeInsets.zero,
-                  minWidth: 0,
-                  onPressed: () {},
-                  child: Row(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.phone,
-                        color: Colors.white,
-                        size: 18,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        '+32 (46) 024-2834\n+61 (48) 889-3724',
-                        style: _footerFont,
-                      ),
-                    ],
-                  ),
+                Row(
+                  children: [
+                    Icon(
+                      FontAwesomeIcons.phone,
+                      color: Colors.white,
+                      size: 18,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      '+32 (46) 024-2834\n+61 (48) 889-3724',
+                      style: _footerFont,
+                    ),
+                  ],
                 ),
               ],
             )),

@@ -18,7 +18,7 @@ class _NavBarState extends State<NavBar> {
     return LayoutBuilder(builder: (context, constraints) {
       if (width <= 420) {
         return NavBarMobile();
-      } else if (width > 421 && width <= 1199) {
+      } else if (width > 421 && width <= 1243) {
         return NavBarMobile();
       } else {
         return NavBarDesktop();

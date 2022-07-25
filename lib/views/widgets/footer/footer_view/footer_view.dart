@@ -17,7 +17,7 @@ class _FooterViewState extends State<FooterView> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return LayoutBuilder(builder: (context, constraints) {
-      if (width < 810) {
+      if (width < 1070) {
         return FooterViewMobile();
       } else {
         return FooterViewDesktop();
