@@ -42,8 +42,8 @@ class _FooterViewMobileState extends State<FooterViewMobile> {
     double width = MediaQuery.of(context).size.width;
     return Container(
       padding: width <= 420
-          ? EdgeInsets.fromLTRB(10, 10, 10, 10)
-          : EdgeInsets.fromLTRB(20, 10, 20, 10),
+          ? EdgeInsets.fromLTRB(10, 30, 10, 30)
+          : EdgeInsets.fromLTRB(20, 30, 20, 30),
       color: Color.fromARGB(253, 66, 0, 83),
       width: double.infinity,
       child: Column(
@@ -63,6 +63,7 @@ class _FooterViewMobileState extends State<FooterViewMobile> {
           Text(
             'We harness the earth’s most abundant resources – the strength of the wind, the heat of the sun and the force of water – to power the world’s biggest economies and the most remote communities. Combining onshore and offshore wind, blades, hydro, storage, utility-scale solar, and grid solutions as well as hybrid renewables and digital services offerings, Kenbayane Renewable Energy has installed more than 400+ gigawatts of clean renewable energy and equipped more than 90 percent of utilities worldwide with its grid solutions.',
             style: _footerFont,
+            textAlign: TextAlign.left,
           ),
           SizedBox(
             height: 25,
@@ -74,6 +75,7 @@ class _FooterViewMobileState extends State<FooterViewMobile> {
               Expanded(
                   child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'Access Us',

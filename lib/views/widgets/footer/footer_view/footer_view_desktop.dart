@@ -64,7 +64,7 @@ class _FooterViewDesktopState extends State<FooterViewDesktop> {
                   height: 20,
                 ),
                 Text(
-                  'We harness the earth’s most abundant resources – the strength of the wind, the heat of the sun and the force of water – to power the world’s biggest economies and the most remote communities. Combining onshore and offshore wind, blades, hydro, storage, utility-scale solar, and grid solutions as well as hybrid renewables and digital services offerings, Kenbayane Renewable Energy has installed more than 400+ gigawatts of clean renewable energy and equipped more than 90 percent of utilities worldwide with its grid solutions.',
+                  'We harness the earth’s most abundant resources – the strength of   the wind, the heat of the sun and the force of water – to power the world’s biggest economies and the most remote communities. Combining onshore and offshore wind, blades, hydro, storage, utility-scale solar, and grid solutions as well as hybrid renewables and digital services offerings, Kenbayane Renewable Energy has installed more than 400+ gigawatts of clean renewable energy and equipped more than 90 percent of utilities worldwide with its grid solutions.',
                   style: _footerFont,
                 )
               ],

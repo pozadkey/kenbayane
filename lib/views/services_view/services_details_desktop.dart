@@ -50,11 +50,10 @@ class _ServicesDetailsDesktopState extends State<ServicesDetailsDesktop> {
           ),
           SizedBox(
             width: 900,
-            child: FittedBox(
-              child: Text(
-                'At Kenbayane, our team has the courage, scale, passion, diversity and resourcefulness needed to deliver that promise...\nwherever and however the world needs it. Together with our customers, we’re proving that no one is ever limited to only\naffordable, reliable, or sustainable energy.',
-                style: _servicesNoteFont,
-              ),
+            child: Text(
+              'At Kenbayane, our team has the courage, scale, passion, diversity and resourcefulness needed to deliver that promise...\nwherever and however the world needs it. Together with our customers, we’re proving that no one is ever limited to only\naffordable, reliable, or sustainable energy.',
+              style: _servicesNoteFont,
+              textAlign: TextAlign.center,
             ),
           ),
           SizedBox(

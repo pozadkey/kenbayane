@@ -56,6 +56,8 @@ class _SecondaryIconButtonState extends State<SecondaryIconButton> {
         child: Padding(
           padding: width >= 800 ? EdgeInsets.all(20) : EdgeInsets.all(8),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 widget.title,
@@ -72,6 +74,10 @@ class _SecondaryIconButtonState extends State<SecondaryIconButton> {
           ),
         ),
         onPressed: () {
+          setState(() {
+            widget.bgColor = widget.myColor;
+            widget.titleColor = widget.titleColorIn;
+          });
           widget.onPressed();
         },
         style: TextButton.styleFrom(

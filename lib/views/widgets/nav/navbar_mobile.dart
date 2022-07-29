@@ -28,8 +28,8 @@ class _NavBarMobileState extends State<NavBarMobile> {
           color: Color.fromARGB(251, 79, 17, 94),
           alignment: Alignment.center,
           padding: width <= 420
-              ? EdgeInsets.fromLTRB(10, 10, 10, 10)
-              : EdgeInsets.fromLTRB(20, 10, 20, 10),
+              ? EdgeInsets.fromLTRB(10, 15, 10, 15)
+              : EdgeInsets.fromLTRB(20, 15, 20, 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -65,10 +65,7 @@ class _NavBarMobileState extends State<NavBarMobile> {
             child: AnimatedContainer(
               color: Color.fromARGB(251, 79, 17, 94),
               padding: width <= 420
-                  ? EdgeInsets.only(
-                      top: 50.0,
-                      bottom: 50.0,
-                    )
+                  ? EdgeInsets.fromLTRB(20, 50, 20, 50)
                   : EdgeInsets.only(
                       top: 50.0,
                       bottom: 50.0,
@@ -140,7 +137,7 @@ class _NavBarMobileState extends State<NavBarMobile> {
                     height: 20.0,
                   ),
                   SizedBox(
-                      width: 150,
+                      width: width <= 420 ? double.infinity : 300,
                       child: PrimaryButton(
                         title: 'Contact Us',
                         myColor: Color.fromARGB(255, 255, 215, 39),

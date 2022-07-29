@@ -15,6 +15,12 @@ class ContactDetailsMobile extends StatefulWidget {
 }
 
 class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
+  bool _isVisible = false;
+  final TextEditingController _name = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _message = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -25,24 +31,16 @@ class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
         fontWeight: FontWeight.w700);
 
     final _subHeaderFont = TextStyle(
-        fontSize: 16, color: Colors.grey[800], fontWeight: FontWeight.w400);
+        fontSize: 14, color: Colors.grey[800], fontWeight: FontWeight.w400);
 
     final _subHeaderFont2 = TextStyle(
-        fontSize: 16, color: Colors.grey[800], fontWeight: FontWeight.w600);
+        fontSize: 14, color: Colors.grey[800], fontWeight: FontWeight.w600);
 
     final _miniFont = TextStyle(
-        fontSize: 16, color: Colors.grey[800], fontWeight: FontWeight.w500);
+        fontSize: 14, color: Colors.grey[800], fontWeight: FontWeight.w500);
 
     final _labelFont = TextStyle(
-        fontSize: 16, color: Colors.grey[800], fontWeight: FontWeight.w500);
-
-    final TextEditingController _name = TextEditingController();
-    final TextEditingController _email = TextEditingController();
-    final TextEditingController _message = TextEditingController();
-
-    final _formKey = GlobalKey<FormState>();
-
-    bool _isVisible = false;
+        fontSize: 14, color: Colors.grey[800], fontWeight: FontWeight.w400);
 
     void _launchEmail() async {
       final url = Uri.parse('mailto:info@kenbayanerenewable.com?subject=Hello');
@@ -57,7 +55,6 @@ class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
       padding: width >= 700
           ? EdgeInsets.fromLTRB(110, 40, 110, 40)
           : EdgeInsets.fromLTRB(20, 40, 20, 40),
-      color: Color.fromARGB(255, 255, 255, 255),
       child: Column(
         children: [
           SizedBox(
@@ -103,27 +100,36 @@ class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
                         height: 50,
                         width: double.infinity,
                         child: Center(
-                          child: Padding(
-                            padding: EdgeInsets.all(12.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Your message was sent. Check your email for a reply.',
-                                  style: _miniFont,
-                                ),
-                                MaterialButton(
-                                  padding: EdgeInsets.zero,
-                                  minWidth: 0,
-                                  onPressed: () {
-                                    setState(() {
-                                      _isVisible = !_isVisible;
-                                    });
-                                  },
-                                  child: Icon(Icons.cancel_outlined,
-                                      size: 20, color: Colors.grey[700]),
-                                )
-                              ],
+                          child: FittedBox(
+                            child: Padding(
+                              padding: EdgeInsets.all(6.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Your message was sent. Check your email for a reply.',
+                                    style: _miniFont,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  MaterialButton(
+                                    padding: EdgeInsets.zero,
+                                    minWidth: 0,
+                                    onPressed: () {
+                                      setState(() {
+                                        _isVisible = false;
+                                      });
+                                    },
+                                    child: Icon(
+                                      Icons.cancel_outlined,
+                                      size: 25,
+                                      color: Color.fromARGB(251, 79, 17, 94),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -269,7 +275,7 @@ class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
                       titleColorIn: Colors.white,
                       titleColorOut: Color.fromARGB(251, 79, 17, 94),
                       myColor: Color.fromARGB(251, 79, 17, 94),
-                      onPressed: () {
+                      onPressed: () async {
                         _formKey.currentState!.validate();
                         if (_name.text.isNotEmpty &&
                             _email.text.isNotEmpty &&

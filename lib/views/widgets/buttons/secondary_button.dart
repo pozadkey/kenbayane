@@ -58,6 +58,10 @@ class _SecondaryButtonState extends State<SecondaryButton> {
           ),
         ),
         onPressed: () {
+          setState(() {
+            widget.bgColor = widget.myColor;
+            widget.titleColor = widget.titleColorIn;
+          });
           widget.onPressed();
         },
         style: TextButton.styleFrom(

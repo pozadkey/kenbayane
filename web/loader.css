@@ -10,7 +10,7 @@
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: rgb(66, 0, 83);
+    background: rgb(255, 255, 255);
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
   .lds-ellipsis div:nth-child(1) {
@@ -58,18 +58,17 @@
 
   body{
     margin: 0;
-    background-color: #000000;
+    background-color: rgb(66, 0, 83);
 }
 
 #loader {
   width: 100vw;
   height: 100vh;
-  /* display: block; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   justify-items: center;
   align-items: center;
   align-content: center;
-  background-color: #ffffff;
+  background-color: rgb(66, 0, 83);
 }

@@ -45,13 +45,16 @@ class _PrimaryButtonState extends State<PrimaryButton> {
       },
       child: TextButton(
         child: Padding(
-          padding: width >= 800 ? EdgeInsets.all(20) : EdgeInsets.all(8),
+          padding: width >= 800 ? EdgeInsets.all(15) : EdgeInsets.all(8),
           child: Text(
             widget.title,
             style: _priimaryButtonFont,
           ),
         ),
         onPressed: () {
+          setState(() {
+            widget.myColor = widget.colorIn;
+          });
           widget.onPressed();
         },
         style: TextButton.styleFrom(

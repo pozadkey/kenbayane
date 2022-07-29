@@ -22,10 +22,10 @@ class _ProjectsDetailsMobileState extends State<ProjectsDetailsMobile> {
         fontWeight: FontWeight.w700);
 
     final _subHeaderFont = TextStyle(
-        fontSize: 16, color: Colors.grey[800], fontWeight: FontWeight.w400);
+        fontSize: 14, color: Colors.grey[800], fontWeight: FontWeight.w400);
 
     final _subHeaderFont2 = TextStyle(
-        fontSize: 16, color: Colors.grey[800], fontWeight: FontWeight.w600);
+        fontSize: 14, color: Colors.grey[800], fontWeight: FontWeight.w600);
 
     return Container(
       padding: width >= 700
@@ -50,7 +50,7 @@ class _ProjectsDetailsMobileState extends State<ProjectsDetailsMobile> {
           Text(
             'Some of our featured projects:',
             style: _subHeaderFont2,
-             textAlign: TextAlign.left,
+            textAlign: TextAlign.left,
           ),
           SizedBox(
             height: 10,

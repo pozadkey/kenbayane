@@ -48,11 +48,11 @@ class _IntroDesktopState extends State<IntroDesktop> {
                 ),
                 SizedBox(
                   width: 500,
-                  child: FittedBox(
-                      child: Text(
-                    'Clean renewable energy sources bring us cleaner, healthier air and water,\nand they also make us less dependent on imported energy and advance\nour economy.',
+                  child: Text(
+                    'Clean renewable energy sources bring us cleaner, healthier air and water, and they also make us less dependent on imported energy and advance our economy.',
                     style: _headerNoteFont,
-                  )),
+                    textAlign: TextAlign.left,
+                  ),
                 ),
                 SizedBox(
                   height: 30,

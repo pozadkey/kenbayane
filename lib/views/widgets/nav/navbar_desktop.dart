@@ -15,11 +15,14 @@ class NavBarDesktop extends StatefulWidget {
 class _NavBarDesktopState extends State<NavBarDesktop> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
       color: Color.fromARGB(251, 79, 17, 94),
-      padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
+      padding: width <= 1550
+          ? EdgeInsets.fromLTRB(100, 15, 100, 15)
+          : EdgeInsets.fromLTRB(150, 15, 150, 15),
       margin: EdgeInsets.all(0),
-      // height: 150,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

@@ -36,7 +36,7 @@ class _FooterBelowViewState extends State<FooterBelowView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Copyright © Kenbayane Renewable - $formattedDate.',
+                  '© Kenbayane Renewable - $formattedDate. All rights reserved.',
                   style: _footerFont,
                 ),
               ],

@@ -37,7 +37,6 @@ class _ServicesDetailsMobileState extends State<ServicesDetailsMobile> {
       padding: width >= 700
           ? EdgeInsets.fromLTRB(110, 40, 110, 40)
           : EdgeInsets.fromLTRB(20, 40, 20, 40),
-      color: Colors.white,
       child: Column(
         children: [
           Text(
@@ -52,7 +51,7 @@ class _ServicesDetailsMobileState extends State<ServicesDetailsMobile> {
             height: 10,
           ),
           SizedBox(
-            width: width >= 700 ? width = 700 : 800,
+            width: width >= 700 ? width = 700 : 500,
             child: Text(
               'At Kenbayane, our team has the courage, scale, passion, diversity and resourcefulness needed to deliver that promise...wherever and however the world needs it. Together with our customers, we’re proving that no one is ever limited to only affordable, reliable, or sustainable energy.',
               style: _servicesNoteFont,

@@ -66,23 +66,20 @@ class _IntroMobileState extends State<IntroMobile> {
           SizedBox(
             height: 15,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SecondaryIconButton(
-                title: 'View projects',
-                bgColor: Colors.transparent,
-                bgColorOut: Colors.transparent,
-                titleColor: Color.fromARGB(255, 255, 215, 39),
-                titleColorIn: Color.fromARGB(251, 79, 17, 94),
-                titleColorOut: Color.fromARGB(255, 255, 215, 39),
-                myColor: Color.fromARGB(255, 255, 215, 39),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/projects');
-                },
-              ),
-            ],
+          SizedBox(
+            width: width <= 420 ? double.infinity : 300,
+            child: SecondaryIconButton(
+              title: 'View projects',
+              bgColor: Colors.transparent,
+              bgColorOut: Colors.transparent,
+              titleColor: Color.fromARGB(255, 255, 215, 39),
+              titleColorIn: Color.fromARGB(251, 79, 17, 94),
+              titleColorOut: Color.fromARGB(255, 255, 215, 39),
+              myColor: Color.fromARGB(255, 255, 215, 39),
+              onPressed: () {
+                Navigator.pushNamed(context, '/projects');
+              },
+            ),
           )
         ],
       ),

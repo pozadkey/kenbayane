@@ -30,7 +30,7 @@ class _ContactDetailsDesktopState extends State<ContactDetailsDesktop> {
       fontSize: 16, color: Colors.grey[800], fontWeight: FontWeight.w500);
 
   final _labelFont = TextStyle(
-      fontSize: 16, color: Colors.grey[800], fontWeight: FontWeight.w500);
+      fontSize: 16, color: Colors.grey[800], fontWeight: FontWeight.w400);
 
   final TextEditingController _name = TextEditingController();
   final TextEditingController _email = TextEditingController();
@@ -38,7 +38,6 @@ class _ContactDetailsDesktopState extends State<ContactDetailsDesktop> {
 
   final _formKey = GlobalKey<FormState>();
 
-  bool isTransfer = true;
   bool _isVisible = false;
 
   void _launchEmail() async {
