@@ -28,20 +28,22 @@ class _ProjectsDetailsDesktopState extends State<ProjectsDetailsDesktop> {
 
     return Center(
       child: Container(
-        padding: width <= 1550
-            ? EdgeInsets.fromLTRB(100, 60, 100, 100)
-            : EdgeInsets.fromLTRB(250, 100, 250, 100),
+        width: double.infinity,
         alignment: Alignment.center,
         color: Color.fromARGB(255, 255, 255, 255),
         child: Container(
+          padding: width <= 1550
+              ? EdgeInsets.fromLTRB(100, 60, 100, 100)
+              : EdgeInsets.fromLTRB(250, 100, 250, 100),
+          width: 2000,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Projects',
                 style: _headerFont,
+                textAlign: TextAlign.center,
               ),
               Divider(
                 color: Color.fromARGB(251, 79, 17, 94),
@@ -86,9 +88,9 @@ class _ProjectsDetailsDesktopState extends State<ProjectsDetailsDesktop> {
                   return Row(
                     children: [
                       Expanded(
-                          child: Container(
-                        color: Colors.blue,
-                        child: Column(children: [Image.asset(projects.img)]),
+                          child: SizedBox(
+                        width: 700,
+                        child: Image.asset(projects.img),
                       )),
                       SizedBox(
                         width: 40,

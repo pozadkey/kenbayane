@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:kenbayanerenewable/views/widgets/buttons/primary_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../widgets/buttons/secondary_button.dart';
@@ -37,10 +38,10 @@ class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
         fontSize: 14, color: Colors.grey[800], fontWeight: FontWeight.w600);
 
     final _miniFont = TextStyle(
-        fontSize: 14, color: Colors.grey[800], fontWeight: FontWeight.w500);
+        fontSize: 12, color: Colors.green[500], fontWeight: FontWeight.w500);
 
     final _labelFont = TextStyle(
-        fontSize: 14, color: Colors.grey[800], fontWeight: FontWeight.w400);
+        fontSize: 12, color: Colors.grey[400], fontWeight: FontWeight.w600);
 
     void _launchEmail() async {
       final url = Uri.parse('mailto:info@kenbayanerenewable.com?subject=Hello');
@@ -94,7 +95,6 @@ class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
                             color: Colors.green[100],
                             border: Border.all(
                               color: Colors.green,
-                              width: 2.0,
                               style: BorderStyle.solid,
                             )),
                         height: 50,
@@ -102,7 +102,7 @@ class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
                         child: Center(
                           child: FittedBox(
                             child: Padding(
-                              padding: EdgeInsets.all(6.0),
+                              padding: EdgeInsets.all(5.0),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -165,18 +165,23 @@ class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
                         FontAwesomeIcons.solidUser,
                         color: Color.fromARGB(251, 79, 17, 94),
                       ),
-                      prefixIconConstraints: BoxConstraints(
-                        minWidth: 45,
-                      ),
+                      contentPadding: width >= 800
+                          ? EdgeInsets.fromLTRB(10, 14, 0, 14)
+                          : EdgeInsets.fromLTRB(10, 11, 0, 11),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white, width: 1.5),
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: Color.fromARGB(251, 79, 17, 94), width: 1.5),
+                          color: Color.fromARGB(251, 79, 17, 94),
+                        ),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.red, width: 1.5),
+                        borderSide: BorderSide(
+                          color: Colors.red,
+                        ),
                       ),
                     ),
                   ),
@@ -203,18 +208,23 @@ class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
                         FontAwesomeIcons.solidEnvelope,
                         color: Color.fromARGB(251, 79, 17, 94),
                       ),
-                      prefixIconConstraints: BoxConstraints(
-                        minWidth: 45,
-                      ),
+                      contentPadding: width >= 800
+                          ? EdgeInsets.fromLTRB(10, 14, 0, 14)
+                          : EdgeInsets.fromLTRB(10, 11, 0, 11),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white, width: 1.5),
+                        borderSide: BorderSide(
+                          color: Colors.white,
+                        ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                            color: Color.fromARGB(251, 79, 17, 94), width: 1.5),
+                          color: Color.fromARGB(251, 79, 17, 94),
+                        ),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.red, width: 1.5),
+                        borderSide: BorderSide(
+                          color: Colors.red,
+                        ),
                       ),
                     ),
                   ),
@@ -246,35 +256,36 @@ class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
                           minWidth: 40,
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.white, width: 1.5),
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                          ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                              color: Color.fromARGB(251, 79, 17, 94),
-                              width: 1.5),
+                            color: Color.fromARGB(251, 79, 17, 94),
+                          ),
                         ),
                         errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.red, width: 1.5),
+                          borderSide: BorderSide(
+                            color: Colors.red,
+                          ),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: 30,
+                    height: 35,
                   ),
                   SizedBox(
                     width: double.infinity,
-                    child: SecondaryButton(
+                    child: PrimaryButton(
                       title: 'Send',
-                      bgColor: Colors.white,
-                      titleColor: Color.fromARGB(251, 79, 17, 94),
-                      titleColorIn: Colors.white,
-                      titleColorOut: Color.fromARGB(251, 79, 17, 94),
-                      myColor: Color.fromARGB(251, 79, 17, 94),
+                      initalTextColor: Colors.white,
+                      initialBgColor: Color.fromARGB(251, 79, 17, 94),
+                      hoverInColor: Colors.white,
+                      hoverInBgColor: Colors.black,
+                      hoverOutColor: Colors.white,
+                      hoverOutBgColor: Color.fromARGB(251, 79, 17, 94),
                       onPressed: () async {
                         _formKey.currentState!.validate();
                         if (_name.text.isNotEmpty &&
@@ -296,7 +307,7 @@ class _ContactDetailsMobileState extends State<ContactDetailsMobile> {
                   ),
                   Container(
                     width: double.infinity,
-                    color: Color.fromARGB(255, 251, 249, 253),
+                    color: Color.fromARGB(255, 246, 241, 251),
                     padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
                     child: Column(
                       children: [

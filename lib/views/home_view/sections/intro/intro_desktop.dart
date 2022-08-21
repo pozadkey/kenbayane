@@ -23,66 +23,75 @@ class _IntroDesktopState extends State<IntroDesktop> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return Container(
-        padding: width <= 1550
-            ? EdgeInsets.fromLTRB(100, 100, 100, 100)
-            : EdgeInsets.fromLTRB(250, 100, 250, 100),
+    return Center(
+      child: Container(
+        width: double.infinity,
         color: Color.fromARGB(251, 79, 17, 94),
-        height: 750,
-        child: Row(
+        child: Column(
           children: [
-            Expanded(
-                child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 500,
-                  child: FittedBox(
-                      child: Text(
-                    'CLEAN.\nSAFE.\nRENEWABLE.',
-                    style: _headerFont,
-                  )),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  width: 500,
-                  child: Text(
-                    'Clean renewable energy sources bring us cleaner, healthier air and water, and they also make us less dependent on imported energy and advance our economy.',
-                    style: _headerNoteFont,
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+            Container(
+                padding: width <= 1550
+                    ? EdgeInsets.fromLTRB(100, 100, 100, 100)
+                    : EdgeInsets.fromLTRB(250, 100, 250, 100),
+                width: 2000,
+                child: Row(
                   children: [
-                    SecondaryIconButton(
-                      title: 'View projects',
-                      bgColor: Colors.transparent,
-                      bgColorOut: Colors.transparent,
-                      titleColor: Color.fromARGB(255, 255, 215, 39),
-                      titleColorIn: Color.fromARGB(251, 79, 17, 94),
-                      titleColorOut: Color.fromARGB(255, 255, 215, 39),
-                      myColor: Color.fromARGB(255, 255, 215, 39),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/projects');
-                      },
-                    ),
+                    Expanded(
+                        child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: 500,
+                          child: FittedBox(
+                              child: Text(
+                            'CLEAN.\nSAFE.\nRENEWABLE.',
+                            style: _headerFont,
+                          )),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          width: 500,
+                          child: Text(
+                            'Clean renewable energy sources bring us cleaner, healthier air and water, and they also make us less dependent on imported energy and advance our economy.',
+                            style: _headerNoteFont,
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SecondaryIconButton(
+                              title: 'View projects',
+                              bgColor: Colors.transparent,
+                              bgColorOut: Colors.transparent,
+                              titleColor: Color.fromARGB(255, 255, 215, 39),
+                              titleColorIn: Color.fromARGB(251, 79, 17, 94),
+                              titleColorOut: Color.fromARGB(255, 255, 215, 39),
+                              myColor: Color.fromARGB(255, 255, 215, 39),
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/projects');
+                              },
+                            ),
+                          ],
+                        )
+                      ],
+                    )),
+                    Expanded(
+                        child: Image.asset(
+                      'assets/images/intro/header_img.png',
+                      scale: 0.2,
+                    ))
                   ],
-                )
-              ],
-            )),
-            Expanded(
-                child: Image.asset(
-              'assets/images/intro/header_img.png',
-              scale: 0.2,
-            ))
+                )),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

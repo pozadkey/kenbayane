@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:kenbayanerenewable/views/widgets/footer/footer_below_view/footer_below_view.dart';
 import 'package:kenbayanerenewable/views/widgets/footer/footer_view/footer_view.dart';
 
 import '../widgets/nav/navbar.dart';
@@ -29,7 +28,7 @@ class _ProjectsViewState extends State<ProjectsView> {
                     NavBar(),
                     ProjectsDetails(),
                     FooterView(),
-                    FooterBelowView()
+
                   ],
                 ),
               ),
@@ -47,7 +46,7 @@ class _ProjectsViewState extends State<ProjectsView> {
                   children: [
                     ProjectsDetails(),
                     FooterView(),
-                    FooterBelowView()
+
                   ],
                 ),
               ),

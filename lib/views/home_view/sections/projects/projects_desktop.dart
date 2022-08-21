@@ -21,53 +21,61 @@ class _ProjectsDesktopState extends State<ProjectsDesktop> {
     double width = MediaQuery.of(context).size.width;
     return Center(
       child: Container(
-        padding: width <= 1550
-            ? EdgeInsets.fromLTRB(100, 100, 100, 100)
-            : EdgeInsets.fromLTRB(250, 100, 250, 100),
+        width: double.infinity,
         alignment: Alignment.center,
         color: Color.fromARGB(255, 255, 255, 255),
-        child: Row(
+        child: Column(
           children: [
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
+            Container(
+              padding: width <= 1550
+                  ? EdgeInsets.fromLTRB(100, 100, 100, 100)
+                  : EdgeInsets.fromLTRB(250, 100, 250, 100),
+              width: 2000,
+              child: Row(
                 children: [
-                  Text(
-                    'Our Works',
-                    style: _headerFont,
-                  ),
-                  Divider(
-                    color: Color.fromARGB(251, 79, 17, 94),
-                    thickness: 1,
+                  Expanded(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Our Works',
+                          style: _headerFont,
+                        ),
+                        Divider(
+                          color: Color.fromARGB(251, 79, 17, 94),
+                          thickness: 1,
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Image.asset(
+                          'assets/images/projects/project-1.jpeg',
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(
-                    height: 30,
+                    width: 50,
                   ),
-                  Image.asset(
-                    'assets/images/projects/project-1.jpeg',
-                  ),
+                  Expanded(
+                      child: Container(
+                          padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
+                          child: SecondaryButton(
+                            bgColor: Colors.white,
+                            titleColor: Color.fromARGB(251, 79, 17, 94),
+                            titleColorIn: Colors.white,
+                            titleColorOut: Color.fromARGB(251, 79, 17, 94),
+                            myColor: Color.fromARGB(251, 79, 17, 94),
+                            title: 'View featured projects',
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/projects');
+                            },
+                          )))
                 ],
               ),
             ),
-            SizedBox(
-              width: 50,
-            ),
-            Expanded(
-                child: Container(
-                    padding: EdgeInsets.fromLTRB(30, 30, 30, 30),
-                    child: SecondaryButton(
-                      bgColor: Colors.white,
-                      titleColor: Color.fromARGB(251, 79, 17, 94),
-                      titleColorIn: Colors.white,
-                      titleColorOut: Color.fromARGB(251, 79, 17, 94),
-                      myColor: Color.fromARGB(251, 79, 17, 94),
-                      title: 'View featured projects',
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/projects');
-                      },
-                    )))
           ],
         ),
       ),

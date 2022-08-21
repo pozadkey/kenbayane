@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:kenbayanerenewable/views/services_view/services_details.dart';
-import 'package:kenbayanerenewable/views/widgets/footer/footer_below_view/footer_below_view.dart';
 import 'package:kenbayanerenewable/views/widgets/footer/footer_view/footer_view.dart';
 
 import '../widgets/nav/navbar.dart';
@@ -19,41 +18,57 @@ class _ServicesViewState extends State<ServicesView> {
   Widget build(BuildContext context) {
     return OrientationBuilder(builder: (context, orientation) {
       if (orientation == Orientation.landscape) {
-        return Scaffold(
-            body: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    NavBar(),
-                    ServicesDetails(),
-                    FooterView(),
-                    FooterBelowView()
-                  ],
-                ),
-              ),
-            )
-          ],
-        ));
+        return LayoutBuilder(
+            builder: (context, constraints) => Scaffold(
+                  body: Column(
+                    children: [
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(
+                                minHeight: constraints.maxHeight),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                NavBar(),
+                                ServicesDetails(),
+                                FooterView(),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ));
       } else {
-        return Scaffold(
-            body: Column(
-          children: [
-            NavBar(),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    ServicesDetails(),
-                    FooterView(),
-                    FooterBelowView()
-                  ],
-                ),
-              ),
-            )
-          ],
-        ));
+        return LayoutBuilder(
+            builder: (context, constraints) => Scaffold(
+                  body: Column(
+                    children: [
+                      NavBar(),
+                      Expanded(
+                        child: Center(
+                          child: SingleChildScrollView(
+                            child: ConstrainedBox(
+                              constraints: BoxConstraints(
+                                  minHeight: constraints.maxHeight),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SizedBox(),
+                                  ServicesDetails(),
+                                  FooterView(),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ));
       }
     });
   }

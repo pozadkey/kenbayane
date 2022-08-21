@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../nav/navbar_logo.dart';
@@ -40,10 +41,13 @@ class _FooterViewMobileState extends State<FooterViewMobile> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat('y').format(now);
+
     return Container(
       padding: width <= 420
-          ? EdgeInsets.fromLTRB(10, 30, 10, 30)
-          : EdgeInsets.fromLTRB(20, 30, 20, 30),
+          ? EdgeInsets.fromLTRB(10, 20, 10, 20)
+          : EdgeInsets.fromLTRB(20, 20, 20, 20),
       color: Color.fromARGB(253, 66, 0, 83),
       width: double.infinity,
       child: Column(
@@ -75,7 +79,7 @@ class _FooterViewMobileState extends State<FooterViewMobile> {
               Expanded(
                   child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     'Access Us',
@@ -135,6 +139,7 @@ class _FooterViewMobileState extends State<FooterViewMobile> {
               Expanded(
                   child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     'Stay In Touch',
@@ -202,6 +207,21 @@ class _FooterViewMobileState extends State<FooterViewMobile> {
                   ),
                 ],
               ))
+            ],
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FooterItems(
+                  onPressed: () {},
+                  title:
+                      '© Kenbayane Renewable - $formattedDate. All rights reserved.',
+                  initialColor: Color.fromARGB(255, 248, 248, 248),
+                  hoverColorIn: Colors.black,
+                  hoverColorOut: Color.fromARGB(255, 248, 248, 248)),
             ],
           ),
         ],

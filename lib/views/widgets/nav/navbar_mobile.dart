@@ -140,9 +140,12 @@ class _NavBarMobileState extends State<NavBarMobile> {
                       width: width <= 420 ? double.infinity : 300,
                       child: PrimaryButton(
                         title: 'Contact Us',
-                        myColor: Color.fromARGB(255, 255, 215, 39),
-                        colorOut: Color.fromARGB(255, 255, 215, 39),
-                        colorIn: Colors.white,
+                        initalTextColor: Color.fromARGB(251, 79, 17, 94),
+                        initialBgColor: Color.fromARGB(255, 255, 215, 39),
+                        hoverInColor: Colors.white,
+                        hoverInBgColor: Colors.black,
+                        hoverOutColor: Color.fromARGB(251, 79, 17, 94),
+                        hoverOutBgColor: Color.fromARGB(255, 255, 215, 39),
                         onPressed: () {
                           setState(() {
                             _isVisible = false;

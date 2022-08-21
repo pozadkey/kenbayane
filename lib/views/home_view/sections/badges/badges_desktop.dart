@@ -27,39 +27,48 @@ class _BadgesDesktopState extends State<BadgesDesktop> {
     double width = MediaQuery.of(context).size.width;
     return Container(
       color: Color.fromARGB(251, 79, 17, 94),
-      padding: width <= 1550
-          ? EdgeInsets.fromLTRB(100, 20, 100, 20)
-          : EdgeInsets.fromLTRB(250, 20, 250, 20),
-      child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 5,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
+      width: double.infinity,
+      child: Column(
+        children: [
+          Container(
+            padding: width <= 1550
+                ? EdgeInsets.fromLTRB(100, 20, 100, 20)
+                : EdgeInsets.fromLTRB(200, 20, 200, 20),
+            width: 2000,
+            child: GridView.builder(
+                padding: EdgeInsets.zero,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 5,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                ),
+                itemCount: badgesList.length,
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                physics: ScrollPhysics(),
+                itemBuilder: (BuildContext ctx, index) {
+                  BadgesInfo badges = badgesList[index];
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        badges.count,
+                        style: _headerFont,
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        badges.title,
+                        style: _headerNoteFont,
+                      )
+                    ],
+                  );
+                }),
           ),
-          itemCount: badgesList.length,
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          physics: ScrollPhysics(),
-          itemBuilder: (BuildContext ctx, index) {
-            BadgesInfo badges = badgesList[index];
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  badges.count,
-                  style: _headerFont,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  badges.title,
-                  style: _headerNoteFont,
-                )
-              ],
-            );
-          }),
+        ],
+      ),
     );
   }
 }

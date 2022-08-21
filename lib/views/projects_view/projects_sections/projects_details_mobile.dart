@@ -83,11 +83,12 @@ class _ProjectsDetailsMobileState extends State<ProjectsDetailsMobile> {
               ProjectsInfo projects = projectsList[index];
               return Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    color: Colors.blue,
-                    child: Image.asset(projects.img),
+                  SizedBox(
+                    width: 700,
+                    child: Image.asset(
+                      projects.img,
+                    ),
                   ),
                   SizedBox(
                     height: 20,

@@ -1,5 +1,5 @@
 name: kenbayanerenewable
-description: For the future.
+description: Living the future.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -30,8 +30,6 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.1.0
-  carousel_slider: ^4.1.1
-  smooth_page_indicator: ^1.0.0+2
   url_launcher: ^6.1.4
   url_strategy: ^0.2.0
   intl: ^0.17.0

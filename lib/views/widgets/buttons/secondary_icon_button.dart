@@ -54,7 +54,7 @@ class _SecondaryIconButtonState extends State<SecondaryIconButton> {
       },
       child: TextButton(
         child: Padding(
-          padding: width >= 800 ? EdgeInsets.all(20) : EdgeInsets.all(8),
+          padding: width >= 800 ? EdgeInsets.all(10) : EdgeInsets.all(6),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -84,7 +84,7 @@ class _SecondaryIconButtonState extends State<SecondaryIconButton> {
           backgroundColor: widget.bgColor,
           side: BorderSide(color: widget.myColor, width: 2),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(2.0)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
         ),
       ),
     );

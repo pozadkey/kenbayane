@@ -4,16 +4,23 @@ import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatefulWidget {
   final String title;
-  Color myColor;
-  Color colorIn;
-  Color colorOut;
+  Color initalTextColor;
+  Color initialBgColor;
+  Color hoverInColor;
+  Color hoverInBgColor;
+  Color hoverOutColor;
+  Color hoverOutBgColor;
   final Function onPressed;
+
   PrimaryButton(
       {Key? key,
       required this.title,
-      required this.myColor,
-      required this.colorIn,
-      required this.colorOut,
+      required this.initalTextColor,
+      required this.initialBgColor,
+      required this.hoverInColor,
+      required this.hoverInBgColor,
+      required this.hoverOutColor,
+      required this.hoverOutBgColor,
       required this.onPressed})
       : super(key: key);
 
@@ -22,46 +29,48 @@ class PrimaryButton extends StatefulWidget {
 }
 
 class _PrimaryButtonState extends State<PrimaryButton> {
-  final _priimaryButtonFont = TextStyle(
-      fontStyle: FontStyle.normal,
-      fontSize: 16,
-      color: Color.fromARGB(251, 79, 17, 94),
-      fontWeight: FontWeight.w600);
-
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    final primaryButtonFont = TextStyle(
+        fontStyle: FontStyle.normal,
+        fontSize: width >= 700 ? 16 : 14,
+        color: widget.initalTextColor,
+        fontWeight: FontWeight.w600);
 
     return MouseRegion(
       onEnter: (m) {
         setState(() {
-          widget.myColor = widget.colorIn;
+          widget.initalTextColor = widget.hoverInColor;
+          widget.initialBgColor = widget.hoverInBgColor;
         });
       },
       onExit: (m) {
         setState(() {
-          widget.myColor = widget.colorOut;
+          widget.initalTextColor = widget.hoverOutColor;
+          widget.initialBgColor = widget.hoverOutBgColor;
         });
       },
       child: TextButton(
         child: Padding(
-          padding: width >= 800 ? EdgeInsets.all(15) : EdgeInsets.all(8),
+          padding: width >= 800 ? EdgeInsets.all(10) : EdgeInsets.all(6),
           child: Text(
             widget.title,
-            style: _priimaryButtonFont,
+            style: primaryButtonFont,
           ),
         ),
         onPressed: () {
           setState(() {
-            widget.myColor = widget.colorIn;
+            widget.initalTextColor = widget.hoverInColor;
+            widget.initialBgColor = widget.hoverInBgColor;
           });
           widget.onPressed();
         },
         style: TextButton.styleFrom(
-          backgroundColor: widget.myColor,
+          backgroundColor: widget.initialBgColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              0.0,
+              5.0,
             ),
           ),
         ),

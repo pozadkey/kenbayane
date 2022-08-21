@@ -33,6 +33,7 @@ class _MyAppState extends State<MyApp> {
           fontFamily: 'Poppins',
         ),
         title: 'Kenbayane Renewable ',
+        initialRoute: '/',
         routes: <String, WidgetBuilder>{
           '/': (BuildContext context) => HomeView(),
           '/services': (BuildContext context) => ServicesView(),

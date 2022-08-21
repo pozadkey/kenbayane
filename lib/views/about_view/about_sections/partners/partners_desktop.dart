@@ -16,33 +16,46 @@ class _PartnersDesktopState extends State<PartnersDesktop> {
     double width = MediaQuery.of(context).size.width;
     return Container(
       color: Color.fromARGB(251, 79, 17, 94),
-      padding: width <= 1550
-          ? EdgeInsets.fromLTRB(100, 20, 100, 20)
-          : EdgeInsets.fromLTRB(250, 20, 250, 20),
-      child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 5,
-            crossAxisSpacing: 20,
-            mainAxisSpacing: 20,
-          ),
-          itemCount: partnersList.length,
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          physics: ScrollPhysics(),
-          itemBuilder: (BuildContext ctx, index) {
-            PartnersInfo partners = partnersList[index];
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
+      width: double.infinity,
+      child: Column(
+        children: [
+          Container(
+            color: Color.fromARGB(251, 79, 17, 94),
+            padding: width <= 1550
+                ? EdgeInsets.fromLTRB(100, 20, 100, 20)
+                : EdgeInsets.fromLTRB(200, 20, 200, 20),
+            width: 2000,
+            child: Column(
               children: [
-                Icon(
-                  partners.icon,
-                  color: Color.fromARGB(255, 255, 215, 39),
-                  size: 80,
-                ),
+                GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 5,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20,
+                    ),
+                    itemCount: partnersList.length,
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    physics: ScrollPhysics(),
+                    itemBuilder: (BuildContext ctx, index) {
+                      PartnersInfo partners = partnersList[index];
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Icon(
+                            partners.icon,
+                            color: Color.fromARGB(255, 255, 215, 39),
+                            size: 80,
+                          ),
+                        ],
+                      );
+                    }),
               ],
-            );
-          }),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
