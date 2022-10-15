@@ -1,16 +1,32 @@
-# ken_renewable
+# Kenbayane
 
-A new Flutter project.
+A portfolio website for a renewable energy company.
 
-## Getting Started
+# Screenshot
 
-This project is a starting point for a Flutter application.
+![Screenshot](https://github.com/pozadkey/funto/blob/master/screenshots/kenbayane.png)
 
-A few resources to get you started if this is your first Flutter project:
+# Usage
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Clone this repo via the link below:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+> [https://github.com/pozadkey/funto](https://github.com/pozadkey/kenbayane/)
+
+
+- Open the project's root folder and excute the following command to get the dependencies
+
+```
+flutter pub get
+```
+
+- Enable web support and run the project in Chrome
+
+```
+flutter config --enable-web
+
+flutter run -d chrome
+```
+
+# Live Preview
+
+Click [Here](https://http://kenbayanerenewable.com)
