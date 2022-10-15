@@ -4,7 +4,7 @@ A portfolio website for a renewable energy company.
 
 # Screenshot
 
-![Screenshot](https://github.com/pozadkey/funto/blob/master/screenshots/kenbayane.png)
+![Screenshot](https://github.com/pozadkey/kenbayane/blob/master/screenshots/kenbayane.png)
 
 # Usage
 
