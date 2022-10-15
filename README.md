@@ -10,7 +10,7 @@ A portfolio website for a renewable energy company.
 
 - Clone this repo via the link below:
 
-> [https://github.com/pozadkey/funto](https://github.com/pozadkey/kenbayane/)
+> [https://github.com/pozadkey/kenbayane](https://github.com/pozadkey/kenbayane/)
 
 
 - Open the project's root folder and excute the following command to get the dependencies
