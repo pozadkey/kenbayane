@@ -29,4 +29,4 @@ flutter run -d chrome
 
 # Live Preview
 
-Click [Here](https://http://kenbayanerenewable.com)
+Click [Here](https://http://kenbayanerenewable.netlify.app)
